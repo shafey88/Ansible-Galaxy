@@ -1,0 +1,4 @@
+---
+# defaults file for webserver
+src_folder: /home/home_work/target/hello-1.0.war
+dest_folder: /var/lib/tomcat8/webapps/
