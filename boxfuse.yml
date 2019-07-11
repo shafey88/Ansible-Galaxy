@@ -1,6 +1,15 @@
+- name: deploy war
+  hosts: deploy
+  become: yes
+
+  roles:
+    - common
+
+
 - name: web-server configuration
   hosts: web
   become: yes
 
+
   roles:
-    - webserver             
+    - webserver          

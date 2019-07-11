@@ -1,24 +1,10 @@
 ---
 # tasks file for webserver
 
-- name: install packages
-  apt: name={{ item }} state=installed
-  with_items:
-      - git
-      - maven
-      - default-jdk
-      - tomcat8
+- name: install tomcat8
+  apt: name=tomcat8 state=present
 
-- name: Clone repo
-  git: 
-   repo: https://github.com/boxfuse/boxfuse-sample-java-war-hello.git
-   dest: /home/home_work/
-   clone: yes
-
-- name: Building war
-  command: mvn -f /home/home_work/pom.xml package
-
-- name: Copying files to WebApps
+- name: Copying files to WebApps to webserver
   copy: src={{ src_folder }} dest={{ dest_folder }} remote_src=true
 
   notify:
